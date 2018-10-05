@@ -1,0 +1,153 @@
+﻿@{
+    Page.Title = "Frequently Asked Questions";
+    Layout = "~/_SiteLayout.cshtml";
+}
+
+
+
+<style>
+    #body {
+        font-size: 24px;
+    }
+
+        #body img {
+            width: 100%;
+            max-width: 64px;
+        }
+
+    .faq li {
+        padding: 20px;
+    }
+
+        .faq li.q {
+            background: #4FC2E;
+            font-weight: bold;
+            font-size: 120%;
+            border-bottom: 1px #ddd solid;
+            cursor: pointer;
+        }
+
+        .faq li.a {
+            background: #3BB0D6;
+            display: none;
+            color: #fff;
+        }
+
+    .rotate {
+        -moz-transform: rotate(90deg);
+        -webkit-transform: rotate(90deg);
+        transform: rotate(90deg);
+    }
+</style>
+<br />
+<h1 class="textSection" style="font-family:'Palatino Linotype';">FAQ</h1>
+<hr />
+<ul class="faq">
+    <li class="q">
+        <img src="~/Images/Right-Arrow-PNG-Transparent.png" alt="arrow">
+        Question
+    </li>
+    <li class="a">
+        Answer
+    </li>
+
+
+    <li class="q">
+        <img src="~/Images/Right-Arrow-PNG-Transparent.png" alt="arrow">
+        Question
+    </li>
+    <li class="a">
+        Answer
+    </li>
+
+
+    <li class="q">
+        <img src="~/Images/Right-Arrow-PNG-Transparent.png" alt="arrow">
+        Question
+    </li>
+    <li class="a">
+        Answer
+    </li>
+
+
+    <li class="q">
+        <img src="~/Images/Right-Arrow-PNG-Transparent.png" alt="arrow">
+        Question
+    </li>
+    <li class="a">
+        Answer
+    </li>
+
+
+    <li class="q">
+        <img src="~/Images/Right-Arrow-PNG-Transparent.png" alt="arrow">
+        Question
+    </li>
+    <li class="a">
+        Answer
+    </li>
+
+
+    <li class="q">
+        <img src="~/Images/Right-Arrow-PNG-Transparent.png" alt="arrow">
+        Question
+    </li>
+    <li class="a">
+        Answer
+    </li>
+
+
+    <li class="q">
+        <img src="~/Images/Right-Arrow-PNG-Transparent.png" alt="arrow">
+        Question
+    </li>
+    <li class="a">
+        Answer
+    </li>
+
+
+    <li class="q">
+        <img src="~/Images/Right-Arrow-PNG-Transparent.png" alt="arrow">
+        Question
+    </li>
+    <li class="a">
+        Answer
+    </li>
+
+
+</ul>
+
+
+<script>
+
+    //<link href="~/Content/themes/base/jquery.ui.all.css" rel="stylesheet" type="text/css" />
+    // Accordian Action
+    var action = 'click';
+    var speed = "500";
+
+
+    $(document).ready(function () {
+
+        // Question handler
+        $('li.q').on(action, function () {
+
+            // gets next element
+            // opens .a of selected question
+            $(this).next().slideToggle(speed)
+
+                // selects all other answers and slides up any open answer
+                .siblings('li.a').slideUp();
+
+            // Grab img from clicked question
+            var img = $(this).children('img');
+
+            // remove Rotate class from all images except the active
+            $('img').not(img).removeClass('rotate');
+
+            // toggle rotate class
+            img.toggleClass('rotate');
+
+        });
+
+    });
+</script>

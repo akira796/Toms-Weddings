@@ -1,0 +1,230 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@Page.Title - Toms Weddings</title>
+    <link href="~/Content/themes/base/jquery.ui.all.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery-ui-1.10.3.js"></script>
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <meta name="viewport" content="width=device-width" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-83806060-13"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-83806060-13');
+    </script>
+
+</head>
+
+
+
+<body>
+    <style>
+        ul.sitemap {
+            display: inline-block
+        }
+
+        a:active, a:hover, a:link, a:visited {
+            color: #fff
+        }
+
+        .footersocial {
+            text-align: center;
+            max-height: 100%
+        }
+    </style>
+
+    <section class="navigation">
+        <section id="login" style="display:inline-block;">
+            @if (WebSecurity.IsAuthenticated)
+            {
+                <text>
+                    Hello, <a class="email" href="~/Account/Manage" title="Manage">@WebSecurity.CurrentUserName</a>!
+                    <form id="logoutForm" action="~/Account/Logout" method="post">
+                        @AntiForgery.GetHtml()
+                        <a href="javascript:document.getElementById('logoutForm').submit()">Log out</a>
+                    </form>
+                </text>
+            }
+            else
+            {
+                @*<ul>
+                        <li><a href="~/Account/Register">Register</a></li>
+                        <li><a href="~/Account/Login">Log in</a></li>
+                    </ul>*@
+            }
+        </section>
+        <div class="nav-container">
+            <div class="brand">
+
+
+                <img src="~/Images/wedding locatio.jpeg" alt="Toms Wedding Logo" style="width:124px;" class="flash" />
+
+            </div>
+
+            <nav>
+                <div class="nav-mobile"><a id="nav-toggle" href="#!" title="Expand"><span></span></a></div>
+                <ul class="nav-list" style="font-size:24px;">
+                    <li>
+                        <a class="cool-link" href="~/Default" title="">Home</a>
+                    </li>
+
+                    @*<li>
+            <a href="#!" title="Expand">Amenities </a>
+            <ul class="nav-dropdown" >
+                <li >
+                    <a href="~/WebDevelopment" title="" >Amenity 1</a>
+                </li>
+                <li>
+                    <a href="~/WebDevelopment#Responsive Web Design" title="">Amenity 2</a>
+                </li>
+
+                <li>
+                    <a href="~/WebDevelopment#SEO" title="">Amenity 3</a>
+                </li>
+                <li>
+                    <a href="~/WebDevelopment#ASP" title="">Amenity 4</a>
+                </li>
+                <li>
+                    <a href="~/WebDevelopment#SSL" title="">Amenity 5</a>
+                </li>
+            </ul>
+        </li>*@
+
+                    <li>
+                        <a class="cool-link" href="~/Packages" title=""> Our Packages</a>
+                    </li>
+
+                    <li>
+                        <a class="cool-link" href="~/Gallery" title="">Gallery</a>
+                    </li>
+
+             
+
+                    <li>
+                        <a class="cool-link" href="~/Contact" title="">Contact</a>
+                    </li>
+                    <li>
+                        <a class="cool-link" href="~/FAQ" title="">FAQ</a>
+                    </li>
+                    @*<li><a href="tel:+16027771105" title="Call Now For Website Design"><img src="~/Images/Phonepng_32x32.png" style="max-width:32px; vertical-align:middle;" alt="Phone" />(602) 777-1105</a></li>*@
+
+                </ul>
+
+            </nav>
+
+        </div>
+
+    </section>
+
+
+    <div id="body">
+        @RenderSection("featured", required: false)
+        <section class="content-wrapper main-content clear-fix">
+            @RenderBody()
+        </section>
+    </div>
+    <footer>
+
+
+        <div class="footersocial" style="display:inline-block; width:100%;">
+            <div class="footer-section-1">
+                <ul class="sitemap" style="list-style-type: none; padding-left:0px;">
+                    <li >
+                        <a href="~/Default" title=" Home ">Home</a>
+                    </li>
+                    <li>
+                        <a href="~/Amenities" title="Amenities">Our Amenities</a>
+                    </li>
+                    <li>
+                        <a href="~/Packages" title="About Our Website development">Our Packages</a>
+                    </li>
+                    <li>
+                        <a href="~/Gallery" title="Gallery">Gallery</a>
+                    </li>
+                    <li>
+                        <a href="~/Contact" title="Contact Us">Contact Us</a>
+                    </li>
+                </ul>
+                @*<ul class="sitemap">
+            <li>
+                <a href="~/WebDevelopment#SEO" title="About Our Website SEO">Search Engine Optimization</a>
+            </li>
+            <li>
+                <a href="~/Pricing" title="About Our Website Pricing">Pricing</a>
+            </li>
+            <li>
+                <a href="~/WebDevelopmentPortfolio" title="view our previous work and current clients">Portfolio</a>
+            </li>
+            <li>
+                <a href="~/Contact" title="Contact Information for Website Serices">Contact</a>
+            </li>
+        </ul>
+        <ul class="sitemap">
+            <li>
+                <a href="~/WebDevelopment#ASP" title="About Our Website coded in ASP.NET">ASP.NET VS. Wordpress</a>
+            </li>
+            <li>
+                <a href="~/FAQ" title="Commonly asked website questions and answers">FAQ</a>
+            </li>
+            <li>
+                <a href="~/Blog/BlogLandingPage.cshtml" title="Akira Web Solutions blog">Blog</a>
+
+            </li>
+
+        </ul>*@
+            </div>
+            <div class="footer-section-2">
+                <p style="font-size:22px; font-weight:bold;">Hours</p>
+                <p style="font-size:22px;">MON-SUN:10AM-7PM</p>
+                
+                <span style="font-size:36px;">&copy; @DateTime.Now.Year - Toms Weddings </span>
+            </div>
+            <div class="footer-section-3">
+               
+                <ul class="sitemap" style="list-style-type: none; padding-left:0px;">
+                    <li>
+                        OUR ADDRESS
+                    </li>
+                    <li>
+                        1480 Spur Lane
+                    </li>
+                    <li>
+                        Colorado Springs, CO 80906
+                    </li>
+                    <li>
+                        Phone: 777-777-7777
+                    </li>
+                    <li>
+                        Email: example@gmail.com
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+    </footer>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
+
+<script async src="~/Scripts/jquery-ui-1.10.3.min.js"></script>
+<script async src="~/Scripts/modernizr-2.6.2.min.js"></script>
+
+@* Nav Script *@
+<script>!function (n) { n(function () { n("nav ul li a:not(:only-child)").click(function (i) { n(this).siblings(".nav-dropdown").toggle(), n(".nav-dropdown").not(n(this).siblings()).hide(), i.stopPropagation() }), n("html").click(function () { n(".nav-dropdown").hide() }), n("#nav-toggle").click(function () { n("nav ul").slideToggle() }), n("#nav-toggle").on("click", function () { this.classList.toggle("active") }) }) }(jQuery);</script>
+<div id="fb-root"></div>
+<script>
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0';
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
